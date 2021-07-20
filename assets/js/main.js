@@ -7,21 +7,6 @@ const Modal = {
       : _modal.classList.add('active')
   }
 }
-/* Array de Objeto que vai contar os valores de data, descrição e valor 
-a ideia dps é conseguir salavar esses dados em banco e adicionar um chart
-para poder controlar os valores por periodo de tempo(intervalos):
-* 7 dias
-* 15 dias
-* 30 dias 
-* 60 a 90 dias
-* meses, etc ....
-*/
-
-/* Crar um objet de transações para ter controle 
-sobre as entradas e saidas e por fim obter o total gasto
-e posteriormente salvá-las em algum lugar para seja possivel 
-utilizar graficos para um maior entendimento dos gastos
-*/
 
 const Storage = {
   get() {
