@@ -7,7 +7,7 @@
     <title>$$ | DEV FINANCE | $$</title>
 
     <!-- STYLES -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,28 +20,43 @@
   </head>
   <body id="app">
     <header id="header">
-      <h1 id="logo">dev.finance<span>$</span></h1>
+      <!-- <h1 id="logo">dev.finance</h1> -->
+      <img id="logo" src="assets/images/logo.svg" alt="Logo Dev Finance" />
     </header>
+
     <main class="main container">
       <section id="balance">
-        <h2>Balanço</h2>
+        <h2 class="sr-only">Balanço</h2>
 
         <div class="card">
-          <h3 class="title-card">Entradas</h3>
+          <h3 class="title-card">
+            <span> Entradas </span>
+            <img src="assets/images/income.svg" alt="Imagem de Entradas" />
+          </h3>
           <p>R$ 5.000,00</p>
         </div>
         <div class="card">
-          <h3 class="title-card">Saídas</h3>
+          <h3 class="title-card">
+            <span> Saídas</span>
+            <img src="assets/images/expense.svg" alt="Imagem de Saídas" />
+          </h3>
           <p>R$ 2.000,00</p>
         </div>
         <div class="card total">
-          <h3 class="title-card">Total</h3>
+          <h3 class="title-card">
+            <span>Total</span>
+            <img src="assets/images/total.svg" alt="Imagem de Total" />
+          </h3>
           <p>R$ 3.000,00</p>
         </div>
       </section>
 
       <section id="transaction">
-        <h2>Transações</h2>
+        <h2 class="sr-only">Transações</h2>
+
+        <a href="#" onclick="Modal.open()" class="button new"
+          >+ Nova Transação</a
+        >
         <!-- table -->
         <table id="data-table">
           <thead>
@@ -49,6 +64,7 @@
               <th>Descrição</th>
               <th>Valor</th>
               <th>Data</th>
+              <th>&nbsp;</th>
             </tr>
           </thead>
           <tbody>
@@ -56,24 +72,80 @@
               <td class="description">Luz</td>
               <td class="expense">- R$ 500,00</td>
               <td class="date">20/04/2021</td>
+              <td>
+                <img src="assets/images/minus.svg" alt="Remover Transação" />
+              </td>
             </tr>
             <tr>
               <td class="description">Água</td>
               <td class="income">+ R$ 200,00</td>
               <td class="date">20/04/2021</td>
+              <td>
+                <img src="assets/images/minus.svg" alt="Remover Transação" />
+              </td>
             </tr>
             <tr>
               <td class="description">Internet</td>
               <td class="expense">- R$ 89,00</td>
               <td class="date">10/04/2021</td>
+              <td>
+                <img src="assets/images/minus.svg" alt="Remover Transação" />
+              </td>
             </tr>
           </tbody>
         </table>
       </section>
     </main>
-    <footer id="footer">dev.finance$</footer>
+
+    <div class="modal-overlay">
+      <div class="modal">
+        <div class="form">
+          <h2>Nova Transação</h2>
+          <form action="">
+            <div class="input-group">
+              <label class="sr-only" for="description">Descrição</label>
+              <input
+                type="text"
+                id="description"
+                name="description"
+                placeholder="Descrição"
+              />
+            </div>
+
+            <div class="input-group">
+              <label class="sr-only" for="amount">Descrição</label>
+              <input
+                type="number"
+                step="0.01"
+                id="amount"
+                name="amount"
+                placeholder="0,00"
+              />
+              <small class="help">
+                Uso o sinal - (negativo) para despesas e, (vírgula) para casas
+                decimais</small
+              >
+            </div>
+
+            <div class="input-group">
+              <label class="sr-only" for="date">Data</label>
+              <input type="date" id="date" name="date" />
+            </div>
+
+            <div class="input-group actions">
+              <a href="#" onclick="Modal.close()" class="button cancel"
+                >Cancelar</a
+              >
+              <button type="submit">Salvar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer"><p>dev.finance$</p></footer>
 
     <!-- SCRIPT -->
-    <script src="js/main.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
