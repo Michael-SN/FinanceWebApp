@@ -7,7 +7,6 @@ const Modal = {
       : _modal.classList.add('active')
   }
 }
-
 const Storage = {
   get() {
     return JSON.parse(localStorage.getItem('dev.finance:transactions')) || []
@@ -20,7 +19,6 @@ const Storage = {
     )
   }
 }
-
 const Transaction = {
   all: Storage.get(),
 
@@ -63,12 +61,6 @@ const Transaction = {
     return total
   }
 }
-
-/* 
-Substituir os values hardcoded por valores inputaveis
-ou seja, permitir que o usuario adicione novas entrads e saidas 
-dinamicamente
-*/
 const DOM = {
   transactionContainer: document.querySelector('#data-table tbody'),
 
@@ -114,12 +106,11 @@ const DOM = {
     DOM.transactionContainer.innerHTML = ''
   }
 }
-
 const Utils = {
   formatAmount(value) {
-    value = Number(value.replace('/,./g', '')) * 100
+    value *= 100
 
-    return value
+    return Math.round(value)
   },
 
   formatDate(date) {
@@ -139,7 +130,6 @@ const Utils = {
     return signal + value
   }
 }
-
 const Form = {
   // Obtendo os valores do formulario
   description: document.querySelector('input#description'),
@@ -206,7 +196,6 @@ const Form = {
     }
   }
 }
-
 const App = {
   init() {
     Transaction.all.forEach(DOM.addTransaction)
@@ -220,5 +209,4 @@ const App = {
     App.init()
   }
 }
-
 App.init()
